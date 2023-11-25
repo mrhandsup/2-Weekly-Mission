@@ -25,6 +25,23 @@ nav {
   padding: 0 20rem;
 }
 
+.gnb .profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gnb .profile img {
+  width: 28px;
+  height: 28px;
+}
+
+.gnb .profile span {
+  color: #373740;
+  font-size: 14px;
+  line-height: normal;
+}
+
 header {
   display: flex;
   flex-direction: column;
