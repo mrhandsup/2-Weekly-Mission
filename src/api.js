@@ -6,3 +6,10 @@ export async function getProfile() {
 
   return body;
 }
+
+export async function getFolder() {
+  const response = await fetch(`${API_URL}/folder`);
+  const body = await response.json();
+
+  return body;
+}
