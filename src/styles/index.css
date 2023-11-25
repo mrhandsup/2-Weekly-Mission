@@ -42,32 +42,88 @@ nav {
   line-height: normal;
 }
 
-.folder-area {
-  width: 1440px;
+.folder-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   padding: 20px 624px 60px 624px;
-  gap: 8px;
+  gap: 20px;
   background-color: #edf7ff;
 }
-.folder-area .folder-info {
+.folder-header .folder-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
-.folder-area .folder-info .img {
+.folder-header .folder-info .img {
   width: 60px;
   height: 60px;
 }
 
-.folder-area .folder-info span.name {
+.folder-header .folder-info span.name {
   font-size: 16px;
   line-height: 24px;
 }
 
-.folder-area p.favorite {
-  margin-top: 20px;
+.folder-header p.favorite {
   font-size: 36px;
+}
+
+.folder-body {
+  padding: 0 20rem;
+}
+.folder-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0;
+}
+
+.folder-card .link-card {
+  margin-bottom: 25px;
+  width: calc(33% - 20px);
+  box-sizing: border-box;
+  height: 334px;
+}
+
+.folder-card .link-card:last-child {
+  margin-bottom: 0;
+}
+
+.folder-card .link-card img {
+  width: 100%;
+  height: 250px;
+  flex-shrink: 0;
+}
+
+.folder-card .link-card .info-area {
+  display: flex;
+  width: 100%;
+  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.folder-card .link-card .info-area .title {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.folder-card .link-card .info-area .date {
+  overflow: hidden;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
 }
 
 header {

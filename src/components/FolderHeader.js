@@ -4,7 +4,7 @@ function FolderHeader({ folder }) {
   }
 
   return (
-    <div className="folder-area">
+    <div className="folder-header">
       <div className="folder-info">
         <img className="img" src={folder.owner.profileImageSource} alt="폴더 프로필" />
         <span className="name">{folder.owner.name}</span>

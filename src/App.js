@@ -1,7 +1,8 @@
 import './styles/index.css';
 import Nav from './components/Nav';
-import FolderHeader from './components/FolderHeader';
 import Footer from './components/Footer';
+import FolderHeader from './components/FolderHeader';
+import FolderCard from './components/FolderCard';
 import { getFolder, getProfile } from './api';
 import { useEffect, useState } from 'react';
 
@@ -28,6 +29,7 @@ function App() {
     <>
       <Nav profile={profile} />
       <FolderHeader folder={folder} />
+      <FolderCard links={folder.links} />
       <Footer />
     </>
   );
