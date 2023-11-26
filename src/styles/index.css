@@ -234,6 +234,16 @@ header {
   }
 }
 
+@media only screen and (max-width: 1124px) {
+  .folder-body {
+    padding: 0 32px;
+  }
+
+  .folder-card .link-card {
+    width: calc(50% - 20px);
+  }
+}
+
 @media only screen and (max-width: 767px) {
   nav .gnb {
     padding: 0 32px;
@@ -272,6 +282,13 @@ header {
 
   header .hero-header .hero-image {
     width: 300px;
+  }
+
+  .folder-body {
+    padding: 0 32px;
+  }
+  .folder-card .link-card {
+    width: 100%;
   }
 }
 
