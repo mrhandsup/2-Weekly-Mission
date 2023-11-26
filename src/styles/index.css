@@ -106,7 +106,7 @@ nav {
   gap: 20px;
   padding: 0;
   background-color: #f5f5f5;
-  box-shadow: -10px 0 10px rgba(245, 245, 245, 1), 10px 0 10px rgba(245, 245, 245, 1);
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
 .folder-card .link-card {
@@ -114,6 +114,7 @@ nav {
   width: calc(33% - 20px);
   box-sizing: border-box;
   height: 334px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
 .folder-card .link-card:last-child {
@@ -135,6 +136,10 @@ nav {
   gap: 10px;
   border-radius: 0px 0px 15px 15px;
   background-color: #fff;
+}
+
+.folder-card .link-card .info-area .time-ago {
+  color: #666;
 }
 
 .folder-card .link-card .info-area .title {

@@ -1,4 +1,5 @@
 import noImage from '../assets/no-image.png';
+import { getTimeAgo } from '../getTimeAgo';
 
 function formatDate(value) {
   const date = new Date(value);
@@ -17,6 +18,7 @@ function FolderCard({ links }) {
           <a href={link.url}>
             <img src={link.imageSource || noImage} alt="카드 이미지" />
             <div className="info-area">
+              <span className="time-ago">{getTimeAgo(link)}</span>
               <p className="title">{link.title}</p>
               <span className="date">{formatDate(link.createdAt)}</span>
             </div>
