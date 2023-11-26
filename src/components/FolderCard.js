@@ -14,11 +14,13 @@ function FolderCard({ links }) {
     <ul className="folder-card">
       {links.map(link => (
         <li className="link-card" key={link.id}>
-          <img src={link.imageSource || noImage} alt="카드 이미지" />
-          <div className="info-area">
-            <p className="title">{link.title}</p>
-            <span className="date">{formatDate(link.createdAt)}</span>
-          </div>
+          <a href={link.url}>
+            <img src={link.imageSource || noImage} alt="카드 이미지" />
+            <div className="info-area">
+              <p className="title">{link.title}</p>
+              <span className="date">{formatDate(link.createdAt)}</span>
+            </div>
+          </a>
         </li>
       ))}
     </ul>

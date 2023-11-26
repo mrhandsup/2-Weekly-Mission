@@ -10,7 +10,7 @@ import searchImg from './assets/search.png';
 function App() {
   const [profile, setProfile] = useState({});
   const [folder, setFolder] = useState({});
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(''); //다음 과제에 사용 예정
 
   const handleSearchSubmit = e => {
     e.preventDefault();
