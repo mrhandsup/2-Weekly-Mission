@@ -5,7 +5,6 @@ import FolderHeader from './components/FolderHeader';
 import FolderCard from './components/FolderCard';
 import { getFolder, getProfile } from './api';
 import { useEffect, useState } from 'react';
-import searchImg from './assets/search.png';
 
 function App() {
   const [profile, setProfile] = useState({});
@@ -38,7 +37,7 @@ function App() {
       <div className="folder-body">
         <form onSubmit={handleSearchSubmit}>
           <div className="search-area">
-            <img src={searchImg} alt="검색" />
+            <img src={process.env.PUBLIC_URL + '/images/search.png'} alt="검색" />
             <input name="search" className="link-search" placeholder="링크를 검색해보세요" />
           </div>
         </form>

@@ -1,4 +1,3 @@
-import noImage from '../assets/no-image.png';
 import { getTimeAgo } from '../getTimeAgo';
 
 function formatDate(value) {
@@ -16,7 +15,7 @@ function FolderCard({ links }) {
       {links.map(link => (
         <li className="link-card" key={link.id}>
           <a href={link.url}>
-            <img src={link.imageSource || noImage} alt="카드 이미지" />
+            <img src={link.imageSource || process.env.PUBLIC_URL + '/images/no-image.png'} alt="카드 이미지" />
             <div className="info-area">
               <span className="time-ago">{getTimeAgo(link)}</span>
               <p className="title">{link.title}</p>
