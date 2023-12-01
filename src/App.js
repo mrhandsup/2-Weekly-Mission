@@ -1,29 +1,23 @@
-import './styles/index.css';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import FolderHeader from './components/FolderHeader';
-import FolderCard from './components/FolderCard';
+import FolderBody from './components/FolderBody';
 import { getFolder } from './api';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [folder, setFolder] = useState({});
-  const [search, setSearch] = useState(''); //다음 과제에 사용 예정
+  const [folder, setFolder] = useState('');
 
-  const handleSearchSubmit = e => {
-    e.preventDefault();
-    setSearch(e.target['search'].value);
+  const fetchData = async () => {
+    try {
+      const { folder } = await getFolder();
+      setFolder(folder);
+    } catch (error) {
+      alert(error);
+    }
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { folder } = await getFolder();
-        setFolder(folder);
-      } catch (error) {
-        console.error(error);
-      }
-    };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -31,15 +25,7 @@ function App() {
     <>
       <Nav />
       <FolderHeader folder={folder} />
-      <div className="folder-body">
-        <form onSubmit={handleSearchSubmit}>
-          <div className="search-area">
-            <img src={process.env.PUBLIC_URL + '/images/search.png'} alt="검색" />
-            <input name="search" className="link-search" placeholder="링크를 검색해보세요" />
-          </div>
-        </form>
-        <FolderCard links={folder.links} />
-      </div>
+      <FolderBody links={folder.links} />
       <Footer />
     </>
   );

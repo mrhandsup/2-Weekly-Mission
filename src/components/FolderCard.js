@@ -1,4 +1,5 @@
 import { getTimeAgo } from '../getTimeAgo';
+import './FolderCard.css';
 
 function formatDate(value) {
   const date = new Date(value);

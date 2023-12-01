@@ -1,0 +1,30 @@
+.folder-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0 60px 0;
+  gap: 20px;
+  background-color: #edf7ff;
+}
+
+.folder-header .folder-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.folder-header .folder-info .img {
+  width: 60px;
+  height: 60px;
+}
+
+.folder-header .folder-info span.name {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.folder-header p.favorite {
+  font-size: 36px;
+}

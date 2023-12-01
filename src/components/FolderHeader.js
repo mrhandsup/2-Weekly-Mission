@@ -1,3 +1,5 @@
+import './FolderHeader.css';
+
 function FolderHeader({ folder }) {
   return (
     folder?.owner && (

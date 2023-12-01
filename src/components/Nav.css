@@ -1,0 +1,68 @@
+nav {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #edf7ff;
+  z-index: 9999;
+}
+
+nav .gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 9.4rem;
+  max-width: 192rem;
+  padding: 0 20rem;
+}
+
+nav .gnb .profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+nav .gnb .profile img {
+  width: 28px;
+  height: 28px;
+}
+
+nav .gnb .profile span.email {
+  color: #373740;
+  font-size: 14px;
+  line-height: normal;
+}
+
+@media only screen and (max-width: 1199px) {
+  nav .gnb {
+    padding: 0 32px;
+    width: 799px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    nav .gnb {
+      padding: 0 32px;
+      width: 326px;
+    }
+
+    nav .gnb .profile span.email {
+      display: none;
+    }
+
+    nav .gnb img {
+      width: 88px;
+    }
+
+    nav .gnb a.cta-short {
+      width: 80px;
+      height: auto;
+      padding: 10px 16px;
+    }
+
+    nav .gnb a.cta-short span {
+      font-size: 14px;
+    }
+  }
+}

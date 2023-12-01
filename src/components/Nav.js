@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 import { getUser } from '../api';
+import './Nav.css';
 
 function Nav() {
   const [user, setUser] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const user = await getUser();
-        setUser(user);
-      } catch (error) {
-        alert(error);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const user = await getUser();
+      setUser(user);
+    } catch (error) {
+      alert(error);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -26,7 +27,7 @@ function Nav() {
         {user ? (
           <div className="profile">
             <img src={user.profileImageSource} alt="프로필 이미지" />
-            <span>{user.email}</span>
+            <span className="email">{user.email}</span>
           </div>
         ) : (
           <a className="cta cta-short" href="signin.html">

@@ -1,0 +1,32 @@
+.folder-body {
+  margin: 40px 0;
+  padding: 0 20rem;
+}
+
+.folder-body .search-area {
+  display: flex;
+  margin-bottom: 40px;
+  padding: 15px 16px;
+  align-items: center;
+  border-radius: 10px;
+  background: #f5f5f5;
+}
+
+.folder-body .search-area .link-search {
+  margin-left: 10px;
+  width: 100%;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+@media only screen and (max-width: 1124px) {
+  .folder-body {
+    padding: 0 32px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .folder-body {
+    padding: 0 32px;
+  }
+}
