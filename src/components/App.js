@@ -4,7 +4,6 @@ import Footer from './Footer';
 function App({ children }) {
   return (
     <>
-      <Nav />
       {children}
       <Footer />
     </>

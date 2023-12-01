@@ -2,6 +2,7 @@ import FolderHeader from '../components/FolderHeader';
 import FolderBody from '../components/FolderBody';
 import { getFolder } from '../api';
 import { useEffect, useState } from 'react';
+import Nav from '../components/Nav';
 
 function Shared() {
   const [folder, setFolder] = useState('');
@@ -21,6 +22,7 @@ function Shared() {
 
   return (
     <>
+      <Nav />
       <FolderHeader folder={folder} />
       <FolderBody links={folder.links} />
     </>

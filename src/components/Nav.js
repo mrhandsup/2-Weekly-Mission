@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getUser } from '../api';
 import './Nav.css';
 
-function Nav() {
+function Nav({ className }) {
   const [user, setUser] = useState();
 
   const fetchData = async () => {
@@ -19,7 +19,7 @@ function Nav() {
   }, []);
 
   return (
-    <nav>
+    <nav className={`nav ${className}`}>
       <div className="gnb">
         <a href="index.html">
           <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
