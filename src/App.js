@@ -3,11 +3,10 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import FolderHeader from './components/FolderHeader';
 import FolderCard from './components/FolderCard';
-import { getFolder, getProfile } from './api';
+import { getFolder } from './api';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [profile, setProfile] = useState({});
   const [folder, setFolder] = useState({});
   const [search, setSearch] = useState(''); //다음 과제에 사용 예정
 
@@ -18,9 +17,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const profileResponse = await getProfile();
         const { folder } = await getFolder();
-        setProfile(profileResponse);
         setFolder(folder);
       } catch (error) {
         console.error(error);
@@ -32,7 +29,7 @@ function App() {
 
   return (
     <>
-      <Nav profile={profile} />
+      <Nav />
       <FolderHeader folder={folder} />
       <div className="folder-body">
         <form onSubmit={handleSearchSubmit}>
