@@ -6,13 +6,9 @@ function formatDate(value) {
 }
 
 function FolderCard({ links }) {
-  if (!links) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <ul className="folder-card">
-      {links.map(link => (
+      {links?.map(link => (
         <li className="link-card" key={link.id}>
           <a href={link.url}>
             <img src={link.imageSource || process.env.PUBLIC_URL + '/images/no-image.png'} alt="카드 이미지" />
