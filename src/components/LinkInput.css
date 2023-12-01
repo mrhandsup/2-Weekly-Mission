@@ -1,0 +1,41 @@
+.add-link-area {
+  display: flex;
+  padding: 60px 320px 90px 320px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background-color: #f0f6ff;
+}
+
+.add-link-area .link-form {
+  display: flex;
+  width: 800px;
+  padding: 16px 20px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 15px;
+  border: 1px solid #6d6afe;
+  background-color: #fff;
+}
+
+.add-link-area .link-form .link-input {
+  width: 100%;
+  border: none;
+}
+
+.add-link-area .link-form .link-input::placeholder {
+  color: #9fa6b2;
+  font-size: 16px;
+}
+
+.add-link-area .link-form .link-add-btn {
+  width: 100px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+}
+
+.add-link-area .link-form .link-add-btn span {
+  color: #f5f5f5;
+  font-size: 14px;
+}

@@ -1,5 +1,3 @@
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
 import FolderHeader from '../components/FolderHeader';
 import FolderBody from '../components/FolderBody';
 import { getFolder } from '../api';
