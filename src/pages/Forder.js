@@ -5,7 +5,7 @@ import './Folder.css';
 function Folder() {
   return (
     <>
-      <Nav className="folder-page-nav" />
+      <Nav className="folder-page-nav" type="folder" />
       <LinkInput />
     </>
   );

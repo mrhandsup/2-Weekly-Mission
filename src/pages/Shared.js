@@ -22,7 +22,7 @@ function Shared() {
 
   return (
     <>
-      <Nav />
+      <Nav type="shared" />
       <FolderHeader folder={folder} />
       <FolderBody links={folder.links} />
     </>
