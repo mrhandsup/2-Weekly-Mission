@@ -19,3 +19,7 @@ export function getSortingTab() {
 export function getFolders() {
   return fetch(`${API_URL}/users/1/links`).then(res => res.json());
 }
+
+export function getSearchedFolders(folderId) {
+  return fetch(`${API_URL}/users/1/links?folderId=${folderId}`).then(res => res.json());
+}

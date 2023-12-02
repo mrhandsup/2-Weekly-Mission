@@ -1,6 +1,5 @@
 import SearchLink from './SearchLink';
 import FolderSortingTab from './FolderSortingTab';
-import FolderCard from './FolderCard';
 import './FolderBody.css';
 
 function FolderBody() {
@@ -9,7 +8,6 @@ function FolderBody() {
       <div className="folder-body">
         <SearchLink />
         <FolderSortingTab />
-        <FolderCard />
       </div>
     </>
   );
