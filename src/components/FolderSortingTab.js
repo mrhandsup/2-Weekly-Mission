@@ -47,6 +47,13 @@ function FolderSortingTab() {
     setSelectedTab(id);
   };
 
+  const nothingDataRender = () => {
+    return (
+      <div className="nothing-data">
+        <span>저장된 링크가 없습니다</span>
+      </div>
+    );
+  };
   const selectedFolderRender = selectedFolder => {
     return (
       <ul className="folder-card">
@@ -91,7 +98,7 @@ function FolderSortingTab() {
       </div>
 
       {selectedFolder === undefined && <FolderCard />}
-      {selectedFolder !== undefined && selectedFolder.length === 0 && <div>데이터없음</div>}
+      {selectedFolder !== undefined && selectedFolder.length === 0 && nothingDataRender()}
       {selectedFolder !== undefined && selectedFolder.length > 0 && selectedFolderRender(selectedFolder)}
     </>
   );

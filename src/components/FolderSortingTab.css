@@ -3,7 +3,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 24px;
 }
 ul.sorting-tab {
   display: flex;
@@ -30,4 +29,18 @@ ul.sorting-tab li.list:hover {
 
 ul.sorting-tab li.list:hover button {
   color: #fff;
+}
+
+.nothing-data {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  padding: 41px 0px 35px 0px;
+  justify-content: center;
+}
+
+.nothing-data span {
+  color: #000;
+  text-align: center;
+  font-size: 16px;
 }
