@@ -1,40 +1,36 @@
-.add-link-area {
-  display: flex;
-  justify-content: center;
+.search-link-area {
   width: 100%;
-  padding: 60px 32px 90px 32px;
-  background-color: #f0f6ff;
 }
-
-.add-link-area .link-form {
+.search-link-area .link-form {
   display: flex;
-  width: 800px;
   padding: 16px 20px;
   align-items: center;
   gap: 8px;
   border-radius: 15px;
-  border: 1px solid #6d6afe;
   background-color: #fff;
+  border-radius: 10px;
+  background: #f5f5f5;
 }
 
-.add-link-area .link-form .add-input {
+.search-link-area .link-form .link-input {
   width: 100%;
   border: none;
+  background: #f5f5f5;
 }
 
-.add-link-area .link-form .add-input::placeholder {
-  color: #9fa6b2;
+.search-link-area .link-form .link-input::placeholder {
+  color: #666;
   font-size: 16px;
 }
 
-.add-link-area .link-form .link-add-btn {
+.search-link-area .link-form .link-search-btn {
   width: 100px;
   padding: 10px 16px;
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
 }
 
-.add-link-area .link-form .link-add-btn span {
+.search-link-area .link-form .link-search-btn span {
   color: #f5f5f5;
   font-size: 14px;
 }

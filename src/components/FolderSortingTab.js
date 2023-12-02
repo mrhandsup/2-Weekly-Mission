@@ -33,6 +33,9 @@ function FolderSortingTab() {
             );
           })}
         </ul>
+        <button>
+          <img className="more-btn" src={process.env.PUBLIC_URL + '/images/add.png'} alt="더보기" />
+        </button>
       </div>
     </>
   );
