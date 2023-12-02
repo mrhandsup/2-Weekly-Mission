@@ -1,12 +1,12 @@
 import { getTimeAgo } from '../getTimeAgo';
-import './FolderCard.css';
+import './SharedFolderCard.css';
 
 function formatDate(value) {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-function FolderCard({ links }) {
+function SharedFolderCard({ links }) {
   return (
     <ul className="folder-card">
       {links?.map(link => (
@@ -25,4 +25,4 @@ function FolderCard({ links }) {
   );
 }
 
-export default FolderCard;
+export default SharedFolderCard;

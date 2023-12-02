@@ -1,7 +1,7 @@
-import FolderCard from './FolderCard';
-import './FolderBody.css';
+import SharedFolderCard from './SharedFolderCard';
+import './SharedBody.css';
 
-function FolderBody({ links }) {
+function SharedBody({ links }) {
   return (
     <div className="folder-body">
       <form>
@@ -10,9 +10,9 @@ function FolderBody({ links }) {
           <input name="search" className="link-search" placeholder="링크를 검색해보세요" />
         </div>
       </form>
-      <FolderCard links={links} />
+      <SharedFolderCard links={links} />
     </div>
   );
 }
 
-export default FolderBody;
+export default SharedBody;

@@ -1,22 +1,17 @@
 const API_URL = 'https://bootcamp-api.codeit.kr/api';
 
-export async function getSampleUser() {
-  const response = await fetch(`${API_URL}/sample/user`);
-  const body = await response.json();
-
-  return body;
+export function getSampleUser() {
+  return fetch(`${API_URL}/sample/user`).then(res => res.json());
 }
 
-export async function getFolder() {
-  const response = await fetch(`${API_URL}/sample/folder`);
-  const body = await response.json();
-
-  return body;
+export function getSampleFolder() {
+  return fetch(`${API_URL}/sample/folder`).then(res => res.json());
 }
 
-export async function getUsers() {
-  const response = await fetch(`${API_URL}/users/1`);
-  const body = await response.json();
+export function getUsers() {
+  return fetch(`${API_URL}/users/1`).then(res => res.json());
+}
 
-  return body;
+export function getFolders() {
+  return fetch(`${API_URL}/users/1/folders`).then(res => res.json());
 }

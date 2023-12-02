@@ -1,6 +1,6 @@
-import FolderHeader from '../components/FolderHeader';
-import FolderBody from '../components/FolderBody';
-import { getFolder } from '../api';
+import SharedHeader from '../components/SharedHeader';
+import SharedBody from '../components/SharedBody';
+import { getSampleFolder } from '../api';
 import { useEffect, useState } from 'react';
 import Nav from '../components/Nav';
 
@@ -9,7 +9,7 @@ function Shared() {
 
   const fetchData = async () => {
     try {
-      const { folder } = await getFolder();
+      const { folder } = await getSampleFolder();
       setFolder(folder);
     } catch (error) {
       alert(error);
@@ -23,8 +23,8 @@ function Shared() {
   return (
     <>
       <Nav type="shared" />
-      <FolderHeader folder={folder} />
-      <FolderBody links={folder.links} />
+      <SharedHeader folder={folder} />
+      <SharedBody links={folder.links} />
     </>
   );
 }

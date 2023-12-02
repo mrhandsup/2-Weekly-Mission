@@ -1,6 +1,6 @@
-import './FolderHeader.css';
+import './SharedHeader.css';
 
-function FolderHeader({ folder }) {
+function SharedHeader({ folder }) {
   return (
     folder?.owner && (
       <div className="folder-header">
@@ -14,4 +14,4 @@ function FolderHeader({ folder }) {
   );
 }
 
-export default FolderHeader;
+export default SharedHeader;

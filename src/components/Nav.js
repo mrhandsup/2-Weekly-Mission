@@ -42,8 +42,9 @@ function Nav({ className, type }) {
       );
     }
   };
+
   return (
-    <nav className={`nav ${className}`}>
+    <nav className={className}>
       <div className="gnb">
         <a href="index.html">
           <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
