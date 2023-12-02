@@ -1,19 +1,23 @@
 .sorting-area {
   width: 100%;
 }
-.sorting-tab {
+ul.sorting-tab {
   display: flex;
-  justify-content: center;
   align-items: flex-start;
   gap: 12px;
+  margin-bottom: 24px;
 }
 
-.sorting-tab .list {
-  display: flex;
+ul.sorting-tab li.list {
   padding: 8px 12px;
-  flex-direction: column;
-  align-items: center;
   border-radius: 5px;
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
-  background: #fff;
+}
+
+ul.sorting-tab li.list:hover {
+  background: var(--linkbrary-primary-color, #6d6afe);
+}
+
+ul.sorting-tab li.list:hover button {
+  color: #fff;
 }

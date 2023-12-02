@@ -1,6 +1,7 @@
 import SearchLink from './SearchLink';
 import FolderSortingTab from './FolderSortingTab';
-import FolderCard from './FooterCard';
+import FolderCard from './FolderCard';
+import './FolderBody.css';
 
 function FolderBody() {
   return (
