@@ -14,7 +14,7 @@ function SharedFolderCard({ links }) {
           <a href={link.url}>
             <img src={link.imageSource || process.env.PUBLIC_URL + '/images/no-image.png'} alt="카드 이미지" />
             <div className="info-area">
-              <span className="time-ago">{getTimeAgo(link)}</span>
+              <span className="time-ago">{getTimeAgo(link.createdAt)}</span>
               <p className="title">{link.title}</p>
               <span className="date">{formatDate(link.createdAt)}</span>
             </div>

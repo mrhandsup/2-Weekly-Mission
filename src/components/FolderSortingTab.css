@@ -12,12 +12,14 @@ ul.sorting-tab {
 }
 
 ul.sorting-tab li.list {
-  padding: 8px 12px;
   border-radius: 5px;
   border: 1px solid var(--linkbrary-primary-color, #6d6afe);
   white-space: nowrap;
 }
 
+ul.sorting-tab li.list button {
+  padding: 8px 12px;
+}
 ul.sorting-tab li.list:hover {
   background: var(--linkbrary-primary-color, #6d6afe);
 }

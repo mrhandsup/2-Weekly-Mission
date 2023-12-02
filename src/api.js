@@ -15,3 +15,7 @@ export function getUsers() {
 export function getSortingTab() {
   return fetch(`${API_URL}/users/1/folders`).then(res => res.json());
 }
+
+export function getFolders() {
+  return fetch(`${API_URL}/users/1/links`).then(res => res.json());
+}

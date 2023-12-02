@@ -1,6 +1,6 @@
-export function getTimeAgo(links) {
+export function getTimeAgo(createdAt) {
   const currentDate = new Date();
-  const createdDate = new Date(links.createdAt);
+  const createdDate = new Date(createdAt);
   const timePassed = currentDate - createdDate;
 
   const SECOND = 1000;
