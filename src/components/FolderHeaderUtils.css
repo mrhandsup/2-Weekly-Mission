@@ -1,0 +1,19 @@
+.utils {
+  display: flex;
+  gap: 12px;
+}
+
+.utils .share button,
+.utils .rename button,
+.utils .remove button {
+  display: flex;
+  align-items: center;
+}
+
+.utils .text {
+  display: block;
+  margin-left: 4px;
+  color: var(--linkbrary-gray-60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 600;
+}

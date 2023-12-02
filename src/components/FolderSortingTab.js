@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getSortingTab, getSearchedFolders } from '../api';
 import { getTimeAgo } from '../getTimeAgo';
 import FolderCard from './FolderCard';
+import FolderHeader from './FolderHeader';
 import './FolderSortingTab.css';
 
 function formatDate(value) {
@@ -31,17 +32,14 @@ function FolderSortingTab() {
       alert(error);
     }
   };
-  useEffect(() => {
-    console.log(selectedFolder);
-  }, [selectedFolder]);
 
   useEffect(() => {
     fetchData();
-  }, []); // 마운트 시에만 호출
+  }, []);
 
   useEffect(() => {
     selectedfetchData();
-  }, [selectedTab]); // selectedTab이 변경될 때만 호출
+  }, [selectedTab]);
 
   const handleTabClick = id => {
     setSelectedTab(id);
@@ -54,6 +52,7 @@ function FolderSortingTab() {
       </div>
     );
   };
+
   const selectedFolderRender = selectedFolder => {
     return (
       <ul className="folder-card">
@@ -96,6 +95,8 @@ function FolderSortingTab() {
           <img className="more-btn" src={process.env.PUBLIC_URL + '/images/add.png'} alt="더보기" />
         </button>
       </div>
+
+      <FolderHeader tabs={tab} selectedTab={selectedTab} />
 
       {selectedFolder === undefined && <FolderCard />}
       {selectedFolder !== undefined && selectedFolder.length === 0 && nothingDataRender()}

@@ -1,0 +1,20 @@
+.folder-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.folder-header h2 {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+h2 {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}

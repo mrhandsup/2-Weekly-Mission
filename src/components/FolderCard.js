@@ -9,7 +9,7 @@ function formatDate(value) {
 
 function FolderCard({ selectedTab }) {
   const [folder, setFolder] = useState([]);
-  console.log(selectedTab);
+
   const fetchData = async () => {
     try {
       const { data } = await getFolders();
