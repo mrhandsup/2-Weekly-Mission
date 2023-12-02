@@ -20,6 +20,10 @@ ul.sorting-tab li.list {
 ul.sorting-tab li.list button {
   padding: 8px 12px;
 }
+ul.sorting-tab li.list button.clicked {
+  color: #fff;
+  background-color: #6d6afe;
+}
 ul.sorting-tab li.list:hover {
   background: var(--linkbrary-primary-color, #6d6afe);
 }

@@ -4,6 +4,7 @@ import './FolderSortingTab.css';
 
 function FolderSortingTab() {
   const [tab, setTab] = useState();
+  const [selectedTab, setSelectedTab] = useState(null);
 
   const fetchData = async () => {
     try {
@@ -18,17 +19,25 @@ function FolderSortingTab() {
     fetchData();
   }, []);
 
+  const handleTabClick = id => {
+    setSelectedTab(id);
+  };
+
   return (
     <>
       <div className="sorting-area">
         <ul className="sorting-tab">
           <li className="list">
-            <button>전체</button>
+            <button className={selectedTab === null ? 'clicked' : ''} onClick={() => handleTabClick(null)}>
+              전체
+            </button>
           </li>
           {tab?.map(list => {
             return (
               <li key={list.id} className="list">
-                <button>{list.name}</button>
+                <button className={selectedTab === list.id ? 'clicked' : ''} onClick={() => handleTabClick(list.id)}>
+                  {list.name}
+                </button>
               </li>
             );
           })}
