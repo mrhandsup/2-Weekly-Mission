@@ -1,6 +1,6 @@
-import './LinkInput.css';
+import './AddLink.css';
 
-function LinkInput() {
+function AddLink() {
   return (
     <div className="add-link-area">
       <form className="link-form">
@@ -14,4 +14,4 @@ function LinkInput() {
   );
 }
 
-export default LinkInput;
+export default AddLink;
