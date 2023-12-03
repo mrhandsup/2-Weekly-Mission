@@ -8,7 +8,7 @@ function formatDate(value) {
 
 function SharedFolderCard({ links }) {
   return (
-    <ul className="folder-card">
+    <ul className="shared-folder-card">
       {links?.map(link => (
         <li className="link-card" key={link.id}>
           <a href={link.url}>
