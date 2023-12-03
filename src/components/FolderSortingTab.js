@@ -3,7 +3,9 @@ import { getSortingTab, getSearchedFolders } from '../api';
 import { getTimeAgo } from '../getTimeAgo';
 import FolderCard from './FolderCard';
 import FolderHeader from './FolderHeader';
+import FloatingAddBtn from './FloatingAddBtn';
 import './FolderSortingTab.css';
+import './FloatingAddBtn.css';
 
 function formatDate(value) {
   const date = new Date(value);
@@ -83,6 +85,7 @@ function FolderSortingTab() {
             </button>
           </li>
         ))}
+        <FloatingAddBtn />
       </ul>
     );
   };

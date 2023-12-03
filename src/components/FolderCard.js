@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { getFolders } from '../api';
 import { getTimeAgo } from '../getTimeAgo';
+import FloatingAddBtn from './FloatingAddBtn';
+import './FloatingAddBtn.css';
 import './FolderCard.css';
 
 function formatDate(value) {
@@ -54,6 +56,7 @@ function FolderCard({ selectedTab }) {
             </button>
           </li>
         ))}
+        <FloatingAddBtn />
       </ul>
     </>
   );
