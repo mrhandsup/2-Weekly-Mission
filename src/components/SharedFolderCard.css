@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
   padding: 0;
   background-color: #f5f5f5;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
@@ -15,10 +14,6 @@
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   border-radius: 1.5rem 1.5rem 0 0;
   overflow: hidden;
-}
-
-.folder-card .link-card:last-child {
-  margin-bottom: 0;
 }
 
 .folder-card .link-card:hover img {
@@ -50,10 +45,12 @@
 }
 
 .folder-card .link-card .info-area .title {
-  width: 100%;
-  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 표시할 줄 수 */
+  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
   font-size: 16px;
   line-height: 24px;
 }
@@ -67,12 +64,22 @@
 }
 
 @media only screen and (max-width: 1124px) {
+  .folder-card {
+    width: 800px;
+    margin: 0 auto;
+  }
+
   .folder-card .link-card {
     width: calc(50% - 20px);
   }
 }
 
 @media only screen and (max-width: 767px) {
+  .folder-card {
+    width: 325px;
+    margin: 0 auto;
+  }
+
   .folder-card .link-card {
     width: 100%;
     white-space: unset;
