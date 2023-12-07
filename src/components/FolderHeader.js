@@ -7,7 +7,7 @@ function FolderHeader({ tabs, selectedTab }) {
   return (
     <>
       {matchingFolder === undefined ? (
-        <h2>전체</h2>
+        <h2 className={styles['folder-header']}>전체</h2>
       ) : (
         <div className={styles['folder-header']}>
           <h2>{matchingFolder.name}</h2>

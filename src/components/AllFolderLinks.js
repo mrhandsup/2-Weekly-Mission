@@ -3,14 +3,14 @@ import { getUserLinks } from '../api';
 import { getTimeAgo } from '../getTimeAgo';
 import FloatingAddBtn from './FloatingAddBtn';
 import './FloatingAddBtn.css';
-import './AllFolderList.css';
+import './AllFolderLinks.css';
 
 function formatDate(value) {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-function AllFolderList() {
+function AllFolderLinks() {
   const [folder, setFolder] = useState([]);
   const [isLoading, setIsloading] = useState(false);
   const [isError, setIsError] = useState(null);
@@ -75,4 +75,4 @@ function AllFolderList() {
   );
 }
 
-export default AllFolderList;
+export default AllFolderLinks;
