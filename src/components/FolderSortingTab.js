@@ -9,22 +9,35 @@ function FolderSortingTab() {
   const [tab, setTab] = useState();
   const [selectedTab, setSelectedTab] = useState(null);
   const [selectedFolder, setSelectedFolder] = useState();
+  const [isLoading, setIsloading] = useState(false);
+  const [isError, setIsError] = useState(null);
+  const [SearchingError, setSearchingError] = useState(null);
 
   const fetchData = async () => {
     try {
+      setIsloading(true);
+      setIsError(null);
+
       const { data } = await getSortingTab();
       setTab(data);
     } catch (error) {
-      alert(error);
+      setIsError(error);
+    } finally {
+      setIsloading(false);
     }
   };
 
   const selectedfetchData = async () => {
     try {
+      setIsloading(true);
+      setSearchingError(null);
+
       const { data } = await getSearchedFolders(selectedTab);
       setSelectedFolder(data);
     } catch (error) {
-      alert(error);
+      setSearchingError(error);
+    } finally {
+      setIsloading(false);
     }
   };
 
@@ -66,18 +79,30 @@ function FolderSortingTab() {
               </li>
             );
           })}
+          {isError?.message && <span className="error">{isError.message}</span>}
         </ul>
         <button>
           <img className="more-btn" src={process.env.PUBLIC_URL + '/images/add.png'} alt="더보기" />
         </button>
       </div>
 
-      <FolderHeader tabs={tab} selectedTab={selectedTab} />
-
-      {selectedFolder === undefined && <FolderCard />}
-      {selectedFolder !== undefined && selectedFolder.length === 0 && nothingDataRender()}
-      {selectedFolder !== undefined && selectedFolder.length > 0 && (
-        <SelectedFolderRender selectedFolder={selectedFolder} />
+      {isLoading ? (
+        <div className="loading">로딩중입니다.</div>
+      ) : (
+        <>
+          <FolderHeader tabs={tab} selectedTab={selectedTab} />
+          {SearchingError?.message ? (
+            <span className="error">{SearchingError.message}</span>
+          ) : (
+            <>
+              {selectedFolder === undefined && <FolderCard />}
+              {selectedFolder !== undefined && selectedFolder.length === 0 && nothingDataRender()}
+              {selectedFolder !== undefined && selectedFolder.length > 0 && (
+                <SelectedFolderRender selectedFolder={selectedFolder} />
+              )}
+            </>
+          )}
+        </>
       )}
     </>
   );

@@ -12,13 +12,20 @@ function formatDate(value) {
 
 function FolderCard({ selectedTab }) {
   const [folder, setFolder] = useState([]);
+  const [isLoading, setIsloading] = useState(false);
+  const [isError, setIsError] = useState(null);
 
   const fetchData = async () => {
     try {
+      setIsloading(true);
+      setIsError(null);
+
       const { data } = await getFolders();
       setFolder(data);
     } catch (error) {
-      alert(error);
+      setIsError(error);
+    } finally {
+      setIsloading(false);
     }
   };
 
@@ -28,36 +35,42 @@ function FolderCard({ selectedTab }) {
 
   return (
     <>
-      <ul className="folder-card">
-        {folder?.map(link => (
-          <li className="link-card" key={link.id}>
-            <a href={link.url}>
-              <img
-                className="card-img"
-                src={link.image_source || process.env.PUBLIC_URL + '/images/no-image.png'}
-                alt="카드 이미지"
-              />
-              <div className="info-area">
-                <div className="time-ago-area">
-                  <span className="time-ago">{getTimeAgo(link.created_at)}</span>
-                  <button
-                    onClick={e => {
-                      e.preventDefault();
-                    }}>
-                    <img className="kebab-btn" src={process.env.PUBLIC_URL + '/images/kebab.png'} alt="케밥 메뉴" />
-                  </button>
+      {isLoading ? (
+        <span className="loading">로딩중입니다.</span>
+      ) : (
+        <ul className="folder-card">
+          {folder?.map(link => (
+            <li className="link-card" key={link.id}>
+              <a href={link.url}>
+                <img
+                  className="card-img"
+                  src={link.image_source || process.env.PUBLIC_URL + '/images/no-image.png'}
+                  alt="카드 이미지"
+                />
+                <div className="info-area">
+                  <div className="time-ago-area">
+                    <span className="time-ago">{getTimeAgo(link.created_at)}</span>
+                    <button
+                      onClick={e => {
+                        e.preventDefault();
+                      }}>
+                      <img className="kebab-btn" src={process.env.PUBLIC_URL + '/images/kebab.png'} alt="케밥 메뉴" />
+                    </button>
+                  </div>
+                  <p className="title">{link.title}</p>
+                  <span className="date">{formatDate(link.created_at)}</span>
                 </div>
-                <p className="title">{link.title}</p>
-                <span className="date">{formatDate(link.created_at)}</span>
-              </div>
-            </a>
-            <button>
-              <img className="star-btn" src={process.env.PUBLIC_URL + '/images/star.png'} alt="즐겨 찾기" />
-            </button>
-          </li>
-        ))}
-        <FloatingAddBtn />
-      </ul>
+              </a>
+              <button>
+                <img className="star-btn" src={process.env.PUBLIC_URL + '/images/star.png'} alt="즐겨 찾기" />
+              </button>
+            </li>
+          ))}
+          <FloatingAddBtn />
+
+          {isError?.message && <span className="error">{isError.message}</span>}
+        </ul>
+      )}
     </>
   );
 }

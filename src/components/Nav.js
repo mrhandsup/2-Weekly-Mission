@@ -4,9 +4,14 @@ import './Nav.css';
 
 function Nav({ className, type }) {
   const [user, setUser] = useState();
+  const [isLoading, setIsloading] = useState(false);
+  const [isError, setIsError] = useState(null);
 
   const fetchData = async () => {
     try {
+      setIsloading(true);
+      setIsError(null);
+
       let data;
 
       if (type === 'folder') {
@@ -17,7 +22,9 @@ function Nav({ className, type }) {
 
       setUser(data);
     } catch (error) {
-      alert(error);
+      setIsError(error);
+    } finally {
+      setIsloading(false);
     }
   };
 
@@ -29,21 +36,23 @@ function Nav({ className, type }) {
     if (type === 'folder') {
       return (
         <>
-          <img src={user[0].image_source} alt="프로필 이미지" />
-          <span className="email">{user[0].email}</span>
+          <img src={user[0]?.image_source} alt="프로필 이미지" />
+          <span className="email">{user[0]?.email}</span>
         </>
       );
     } else if (type === 'shared') {
       return (
         <>
-          <img src={user.profileImageSource} alt="프로필 이미지" />
-          <span className="email">{user.email}</span>
+          <img src={user?.profileImageSource} alt="프로필 이미지" />
+          <span className="email">{user?.email}</span>
         </>
       );
     }
   };
 
-  return (
+  return isLoading ? (
+    <div className="loading">로딩중입니다.</div>
+  ) : (
     <nav className={className}>
       <div className="gnb">
         <a href="index.html">
@@ -57,6 +66,7 @@ function Nav({ className, type }) {
           </a>
         )}
       </div>
+      {isError?.message && <span className="error">{isError.message}</span>}
     </nav>
   );
 }

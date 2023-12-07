@@ -1,3 +1,10 @@
 .folder-page-nav {
   position: static;
 }
+
+.loading,
+.error {
+  padding: 8px 0;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -5,14 +5,21 @@ import { useEffect, useState } from 'react';
 import Nav from '../components/Nav';
 
 function Shared() {
-  const [folder, setFolder] = useState('');
+  const [folder, setFolder] = useState();
+  const [isLoading, setIsloading] = useState(false);
+  const [isError, setIsError] = useState(null);
 
   const fetchData = async () => {
     try {
+      setIsloading(true);
+      setIsError(null);
+
       const { folder } = await getSampleFolder();
       setFolder(folder);
     } catch (error) {
-      alert(error);
+      setIsError(error);
+    } finally {
+      setIsloading(false);
     }
   };
 
@@ -23,8 +30,15 @@ function Shared() {
   return (
     <>
       <Nav type="shared" />
-      <SharedHeader folder={folder} />
-      <SharedBody links={folder.links} />
+      {isLoading ? (
+        <span className="loading">로딩중입니다.</span>
+      ) : (
+        <>
+          <SharedHeader folder={folder} />
+          <SharedBody links={folder?.links} />
+          {isError?.message && <span className="error">{isError.message}</span>}
+        </>
+      )}
     </>
   );
 }

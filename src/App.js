@@ -1,19 +1,19 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Shared from './pages/Shared';
 import Folder from './pages/Forder';
-import App from './components/App';
+import MainLayout from './pages/MainLayout';
 
-function Main() {
+function App() {
   return (
     <BrowserRouter>
-      <App>
+      <MainLayout>
         <Routes>
           <Route path="/" element={<Navigate to="/folder" />} />
           <Route path="/shared" element={<Shared />}></Route>
           <Route path="/folder" element={<Folder />}></Route>
         </Routes>
-      </App>
+      </MainLayout>
     </BrowserRouter>
   );
 }
-export default Main;
+export default App;
