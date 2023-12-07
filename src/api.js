@@ -1,4 +1,5 @@
 const API_URL = 'https://bootcamp-api.codeit.kr/api';
+const userId = 1;
 
 export function fetchData(url) {
   return fetch(`${API_URL}/${url}`).then(res => {
@@ -18,17 +19,17 @@ export function getSampleFolder() {
 }
 
 export function getUsers() {
-  return fetchData('users/1');
+  return fetchData(`users/${userId}`);
 }
 
 export function getSortingTab() {
-  return fetchData('users/1/folders');
+  return fetchData(`users/${userId}/folders`);
 }
 
-export function getFolders() {
-  return fetchData('users/1/links');
+export function getUserLinks() {
+  return fetchData(`users/${userId}/links`);
 }
 
 export function getSearchedFolders(folderId) {
-  return fetchData(`users/1/links?folderId=${folderId}`);
+  return fetchData(`users/${userId}/links?folderId=${folderId}`);
 }

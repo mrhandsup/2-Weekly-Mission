@@ -32,7 +32,7 @@ function Nav({ className, type }) {
     fetchData();
   }, []);
 
-  const renderProfile = () => {
+  const RenderProfile = () => {
     if (type === 'folder') {
       return (
         <>
@@ -40,7 +40,9 @@ function Nav({ className, type }) {
           <span className="email">{user[0]?.email}</span>
         </>
       );
-    } else if (type === 'shared') {
+    }
+
+    if (type === 'shared') {
       return (
         <>
           <img src={user?.profileImageSource} alt="프로필 이미지" />
@@ -59,7 +61,7 @@ function Nav({ className, type }) {
           <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
         </a>
         {user ? (
-          <div className="profile">{renderProfile()}</div>
+          <div className="profile">{RenderProfile()}</div>
         ) : (
           <a className="cta cta-short" href="signin.html">
             <span>로그인</span>

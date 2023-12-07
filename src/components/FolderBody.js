@@ -1,4 +1,4 @@
-import SearchLink from './SearchLink';
+import LinkSearchInput from './LinkSearchInput ';
 import FolderSortingTab from './FolderSortingTab';
 import './FolderBody.css';
 
@@ -6,7 +6,7 @@ function FolderBody() {
   return (
     <>
       <div className="folder-body">
-        <SearchLink />
+        <LinkSearchInput />
         <FolderSortingTab />
       </div>
     </>

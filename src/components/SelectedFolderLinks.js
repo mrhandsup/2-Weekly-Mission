@@ -7,10 +7,10 @@ function formatDate(value) {
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-function SelectedFolderRender({ selectedFolder }) {
+function SelectedFolderLinks({ links }) {
   return (
     <ul className="folder-card">
-      {selectedFolder?.map(link => (
+      {links?.map(link => (
         <li className="link-card" key={link.id}>
           <a href={link.url}>
             <img
@@ -25,7 +25,7 @@ function SelectedFolderRender({ selectedFolder }) {
                   onClick={e => {
                     e.preventDefault();
                   }}>
-                  <img className="kebab-btn" src={process.env.PUBLIC_URL + '/images/kebab.png'} alt="케밥 메뉴" />
+                  <img className="kebab-btn" src={process.env.PUBLIC_URL + '/images/kebab.png'} alt="추가메뉴 버튼" />
                 </button>
               </div>
               <p className="title">{link.title}</p>
@@ -42,4 +42,4 @@ function SelectedFolderRender({ selectedFolder }) {
   );
 }
 
-export default SelectedFolderRender;
+export default SelectedFolderLinks;

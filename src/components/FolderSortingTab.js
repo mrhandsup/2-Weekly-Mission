@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getSortingTab, getSearchedFolders } from '../api';
-import FolderCard from './FolderCard';
+import AllFolderList from './AllFolderList';
 import FolderHeader from './FolderHeader';
-import SelectedFolderRender from './SelectedFolderRender';
+import SelectedFolderLinks from './SelectedFolderLinks';
 import './FolderSortingTab.css';
 
 function FolderSortingTab() {
@@ -53,14 +53,6 @@ function FolderSortingTab() {
     setSelectedTab(id);
   };
 
-  const nothingDataRender = () => {
-    return (
-      <div className="nothing-data">
-        <span>저장된 링크가 없습니다</span>
-      </div>
-    );
-  };
-
   return (
     <>
       <div className="sorting-area">
@@ -95,10 +87,14 @@ function FolderSortingTab() {
             <span className="error">{SearchingError.message}</span>
           ) : (
             <>
-              {selectedFolder === undefined && <FolderCard />}
-              {selectedFolder !== undefined && selectedFolder.length === 0 && nothingDataRender()}
+              {selectedFolder === undefined && <AllFolderList />}
+              {selectedFolder !== undefined && selectedFolder.length === 0 && (
+                <div className="nothing-data">
+                  <span>저장된 링크가 없습니다</span>
+                </div>
+              )}
               {selectedFolder !== undefined && selectedFolder.length > 0 && (
-                <SelectedFolderRender selectedFolder={selectedFolder} />
+                <SelectedFolderLinks links={selectedFolder} />
               )}
             </>
           )}

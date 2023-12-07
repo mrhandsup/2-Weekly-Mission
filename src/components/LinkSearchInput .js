@@ -1,6 +1,6 @@
-import './SearchLink.css';
+import './LinkSearchInput.css';
 
-function SearchLink() {
+function LinkSearchInput() {
   return (
     <>
       <div className="search-link-area">
@@ -13,4 +13,4 @@ function SearchLink() {
   );
 }
 
-export default SearchLink;
+export default LinkSearchInput;

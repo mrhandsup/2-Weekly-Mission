@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { getFolders } from '../api';
+import { getUserLinks } from '../api';
 import { getTimeAgo } from '../getTimeAgo';
 import FloatingAddBtn from './FloatingAddBtn';
 import './FloatingAddBtn.css';
-import './FolderCard.css';
+import './AllFolderList.css';
 
 function formatDate(value) {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-function FolderCard({ selectedTab }) {
+function AllFolderList() {
   const [folder, setFolder] = useState([]);
   const [isLoading, setIsloading] = useState(false);
   const [isError, setIsError] = useState(null);
@@ -20,7 +20,7 @@ function FolderCard({ selectedTab }) {
       setIsloading(true);
       setIsError(null);
 
-      const { data } = await getFolders();
+      const { data } = await getUserLinks();
       setFolder(data);
     } catch (error) {
       setIsError(error);
@@ -75,4 +75,4 @@ function FolderCard({ selectedTab }) {
   );
 }
 
-export default FolderCard;
+export default AllFolderList;
