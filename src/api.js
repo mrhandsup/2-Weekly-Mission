@@ -22,7 +22,7 @@ export function getUsers() {
   return fetchData(`users/${userId}`);
 }
 
-export function getSortingTab() {
+export function getFolderTabs() {
   return fetchData(`users/${userId}/folders`);
 }
 

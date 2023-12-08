@@ -1,10 +1,10 @@
 import AllFolderLinks from './AllFolderLinks';
 import SelectedFolderLinks from './SelectedFolderLinks';
 
-function FolderContents({ selectedFolder, isLoading, searchingError }) {
+function FolderContents({ selectedFolder, searchingLoading, searchingError }) {
   return (
     <>
-      {isLoading ? (
+      {searchingLoading ? (
         <div className="loading">로딩중입니다.</div>
       ) : (
         <>

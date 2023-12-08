@@ -4,6 +4,7 @@ import { getTimeAgo } from '../getTimeAgo';
 import FloatingAddBtn from './FloatingAddBtn';
 import './FloatingAddBtn.css';
 import './AllFolderLinks.css';
+import useAsync from './hooks/useAsync';
 
 function formatDate(value) {
   const date = new Date(value);
@@ -12,21 +13,11 @@ function formatDate(value) {
 
 function AllFolderLinks() {
   const [folder, setFolder] = useState([]);
-  const [isLoading, setIsloading] = useState(false);
-  const [isError, setIsError] = useState(null);
+  const [isLoading, isError, getUserLinksAsync] = useAsync(getUserLinks);
 
   const fetchData = async () => {
-    try {
-      setIsloading(true);
-      setIsError(null);
-
-      const { data } = await getUserLinks();
-      setFolder(data);
-    } catch (error) {
-      setIsError(error);
-    } finally {
-      setIsloading(false);
-    }
+    const data = await getUserLinksAsync();
+    setFolder(data);
   };
 
   useEffect(() => {

@@ -1,44 +1,26 @@
 import { useEffect, useState } from 'react';
-import { getSortingTab, getSearchedFolders } from '../api';
+import { getFolderTabs, getSearchedFolders } from '../api';
 import LinkSearchInput from './LinkSearchInput ';
 import FolderHeader from './FolderHeader';
 import FolderTabs from './FolderTabs';
 import FolderContents from './FolderContents';
+import useAsync from './hooks/useAsync';
 
 function FolderBody() {
   const [tab, setTab] = useState();
   const [selectedTab, setSelectedTab] = useState(null);
   const [selectedFolder, setSelectedFolder] = useState();
-  const [isLoading, setIsloading] = useState(false);
-  const [isError, setIsError] = useState(null);
-  const [searchingError, setSearchingError] = useState(null);
+  const [isLoading, isError, getFolderTabsAsync] = useAsync(getFolderTabs);
+  const [searchingLoading, searchingError, getSearchedFoldersAsync] = useAsync(getSearchedFolders);
 
   const fetchData = async () => {
-    try {
-      setIsloading(true);
-      setIsError(null);
-
-      const { data } = await getSortingTab();
-      setTab(data);
-    } catch (error) {
-      setIsError(error);
-    } finally {
-      setIsloading(false);
-    }
+    const data = await getFolderTabsAsync();
+    setTab(data);
   };
 
   const selectedfetchData = async () => {
-    try {
-      setIsloading(true);
-      setSearchingError(null);
-
-      const { data } = await getSearchedFolders(selectedTab);
-      setSelectedFolder(data);
-    } catch (error) {
-      setSearchingError(error);
-    } finally {
-      setIsloading(false);
-    }
+    const data = await getSearchedFoldersAsync(selectedTab);
+    setSelectedFolder(data);
   };
 
   useEffect(() => {
@@ -57,14 +39,20 @@ function FolderBody() {
     <>
       <div className="folder-body">
         <LinkSearchInput />
-        <FolderTabs tab={tab} selectedTab={selectedTab} handleTabClick={handleTabClick} isError={isError} />
+        <FolderTabs
+          tab={tab}
+          selectedTab={selectedTab}
+          handleTabClick={handleTabClick}
+          isLoading={isLoading}
+          isError={isError}
+        />
         <FolderHeader tabs={tab} selectedTab={selectedTab} />
         <FolderContents
-          isLoading={isLoading}
-          searchingError={searchingError}
           tab={tab}
           selectedTab={selectedTab}
           selectedFolder={selectedFolder}
+          searchingLoading={searchingLoading}
+          searchingError={searchingError}
         />
       </div>
     </>
