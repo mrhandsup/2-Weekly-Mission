@@ -1,3 +1,5 @@
+import './FloatingAddBtn.css';
+
 function FloatingAddBtn() {
   return (
     <div className="floating-add-btn">
