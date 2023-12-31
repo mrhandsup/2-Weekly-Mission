@@ -5,19 +5,15 @@ import FloatingAddBtn from './FloatingAddBtn';
 import './FloatingAddBtn.css';
 import './AllFolderLinks.css';
 import useAsync from './hooks/useAsync';
-
-function formatDate(value) {
-  const date = new Date(value);
-  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
-}
+import formatDate from '../utills/formatDate';
 
 function AllFolderLinks() {
-  const [folder, setFolder] = useState([]);
+  const [links, setLinks] = useState([]);
   const [isLoading, isError, getUserLinksAsync] = useAsync(getUserLinks);
 
   const fetchData = async () => {
     const data = await getUserLinksAsync();
-    setFolder(data);
+    setLinks(data);
   };
 
   useEffect(() => {
@@ -30,7 +26,7 @@ function AllFolderLinks() {
         <span className="loading">로딩중입니다.</span>
       ) : (
         <ul className="folder-card">
-          {folder?.map(link => (
+          {links?.map(link => (
             <li className="link-card" key={link.id}>
               <a href={link.url}>
                 <img

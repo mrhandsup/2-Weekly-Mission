@@ -1,6 +1,10 @@
 import './FolderTabs.css';
 
-function FolderTabs({ tab, selectedTab, handleTabClick, isLoading, isError }) {
+function FolderTabs({ tab, selectedTab, setSelectedTab, isLoading, isError }) {
+  const handleTabClick = id => {
+    setSelectedTab(id);
+  };
+
   return (
     <>
       {isLoading ? (
@@ -13,6 +17,7 @@ function FolderTabs({ tab, selectedTab, handleTabClick, isLoading, isError }) {
                 전체
               </button>
             </li>
+
             {tab?.map(list => {
               return (
                 <li key={list.id} className="list">

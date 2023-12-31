@@ -31,10 +31,6 @@ function FolderBody() {
     selectedfetchData();
   }, [selectedTab]);
 
-  const handleTabClick = id => {
-    setSelectedTab(id);
-  };
-
   return (
     <>
       <div className="folder-body">
@@ -42,7 +38,7 @@ function FolderBody() {
         <FolderTabs
           tab={tab}
           selectedTab={selectedTab}
-          handleTabClick={handleTabClick}
+          setSelectedTab={setSelectedTab}
           isLoading={isLoading}
           isError={isError}
         />

@@ -1,11 +1,7 @@
 import { getTimeAgo } from '../getTimeAgo';
+import formatDate from '../utills/formatDate';
 import FloatingAddBtn from './FloatingAddBtn';
 import './FloatingAddBtn.css';
-
-function formatDate(value) {
-  const date = new Date(value);
-  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
-}
 
 function SelectedFolderLinks({ links }) {
   return (
