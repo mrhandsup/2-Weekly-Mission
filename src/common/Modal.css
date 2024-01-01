@@ -21,6 +21,10 @@
   font-weight: 700;
 }
 
+.modal-container .folder-name {
+  color: #9fa6b2;
+  font-size: 14px;
+}
 .modal-container .modal-input {
   display: flex;
   width: 280px;

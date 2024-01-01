@@ -1,6 +1,7 @@
 import './Modal.css';
 
-function Modal({ closeModal }) {
+function Modal({ modalContent, closeModal }) {
+  console.log(modalContent.backgroundColor);
   const handleBgClick = e => {
     if (e.target.classList.contains('bg')) {
       closeModal();
@@ -10,9 +11,12 @@ function Modal({ closeModal }) {
   return (
     <>
       <div className="modal-container">
-        <p className="title">폴더 이름 변경</p>
-        <input className="modal-input" placeholder="유용한 팁" />
-        <button className="btn">변경하기</button>
+        <p className="title">{modalContent.title}</p>
+        {modalContent.hasInput && <input className="modal-input" placeholder="유용한 팁" />}
+        {modalContent.folderName ? <p className="folder-name">{modalContent.folderName}</p> : null}
+        <button className="btn" style={{ background: modalContent.backgroundColor }}>
+          {modalContent.buttonRole}
+        </button>
         <button className="close" onClick={closeModal}>
           <img src={process.env.PUBLIC_URL + '/images/modal_close.png'} alt="닫기" />
         </button>

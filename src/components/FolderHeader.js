@@ -11,7 +11,7 @@ function FolderHeader({ tabs, selectedTab }) {
       ) : (
         <div className={styles['folder-header']}>
           <h2>{matchingFolder.name}</h2>
-          <FolderHeaderUtils />
+          <FolderHeaderUtils folderName={matchingFolder.name} />
         </div>
       )}
     </>
