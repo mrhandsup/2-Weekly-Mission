@@ -1,9 +1,29 @@
+import { useEffect, useState } from 'react';
 import { getTimeAgo } from '../getTimeAgo';
 import formatDate from '../utills/formatDate';
 import FloatingAddBtn from './FloatingAddBtn';
 import './FolderLinkCard.css';
 
 function FolderLinkCard({ links, loading, error }) {
+  const [showKebabMenu, setShowKebabMenu] = useState([]);
+
+  useEffect(() => {
+    if (links) {
+      setShowKebabMenu(links.map(() => false));
+    }
+  }, [links]);
+
+  const toggleKebabMenu = (e, index) => {
+    e.preventDefault();
+
+    setShowKebabMenu(prevStates => {
+      const newStates = [...prevStates];
+      newStates[index] = !newStates[index];
+
+      return newStates;
+    });
+  };
+
   return (
     <>
       {loading ? (
@@ -11,7 +31,7 @@ function FolderLinkCard({ links, loading, error }) {
       ) : (
         <>
           <ul className="folder-card">
-            {links?.map(link => (
+            {links?.map((link, index) => (
               <li className="link-card" key={link.id}>
                 <a href={link.url}>
                   <img
@@ -26,18 +46,11 @@ function FolderLinkCard({ links, loading, error }) {
                         <button
                           className="kebab-btn"
                           onClick={e => {
-                            e.preventDefault();
+                            toggleKebabMenu(e, index);
                           }}>
                           <img src={process.env.PUBLIC_URL + '/images/kebab.png'} alt="추가메뉴 버튼" />
                         </button>
-                        <div className="kebab-menu-list">
-                          <button className="btn">
-                            <span>삭제하기</span>
-                          </button>
-                          <button className="btn">
-                            <span>폴더에 추가</span>
-                          </button>
-                        </div>
+                        {showKebabMenu[index] && <KebabMenu />}
                       </div>
                     </div>
                     <p className="title">{link.title}</p>
@@ -58,12 +71,17 @@ function FolderLinkCard({ links, loading, error }) {
   );
 }
 
-function kebabMenu() {
-  return;
-  <div className="kebab-menu">
-    <button className="btn">삭제하기</button>
-    <button className="btn">폴더에 추가</button>
-  </div>;
+function KebabMenu() {
+  return (
+    <div className="kebab-menu-list">
+      <button className="btn">
+        <span>삭제하기</span>
+      </button>
+      <button className="btn">
+        <span>폴더에 추가</span>
+      </button>
+    </div>
+  );
 }
 
 export default FolderLinkCard;
