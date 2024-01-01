@@ -1,7 +1,7 @@
+import LayoutSns from './LayoutSns';
 import './Modal.css';
 
 function Modal({ modalContent, closeModal }) {
-  console.log(modalContent.backgroundColor);
   const handleBgClick = e => {
     if (e.target.classList.contains('bg')) {
       closeModal();
@@ -31,31 +31,6 @@ function Modal({ modalContent, closeModal }) {
       </div>
       <div className="bg" onClick={handleBgClick}></div>
     </>
-  );
-}
-
-function LayoutSns() {
-  return (
-    <div className="sns-area">
-      <div className="kakao">
-        <button className="share-btn">
-          <img src={process.env.PUBLIC_URL + '/images/Kakao.png'} alt="카카오톡 공유" />
-        </button>
-        <span className="text">카카오톡</span>
-      </div>
-      <div className="facebook">
-        <button className="share-btn">
-          <img src={process.env.PUBLIC_URL + '/images/Facebook.png'} alt="페이스북 공유" />
-        </button>
-        <span className="text">페이스북</span>
-      </div>
-      <div className="link">
-        <button className="share-btn">
-          <img src={process.env.PUBLIC_URL + '/images/link.png'} alt="링크 공유" />
-        </button>
-        <span className="text">링크 복사</span>
-      </div>
-    </div>
   );
 }
 export default Modal;

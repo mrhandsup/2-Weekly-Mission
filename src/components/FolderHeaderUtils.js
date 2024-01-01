@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './FolderHeaderUtils.css';
-import Modal from '../common/Modal';
+import Modal from '../common/Modal/Modal';
 
 function FolderHeaderUtils({ folderName }) {
   const [openModal, setOpenModal] = useState(false);
