@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import FolderLinkCard from './FolderLinkCard';
-import './AllFolderLinks.css';
 import useAsync from './hooks/useAsync';
 import { getSearchedFolders, getUserLinks } from '../api';
 
@@ -35,7 +34,7 @@ function FolderContents({ selectedTab }) {
         <FolderLinkCard links={selectedFolder} loading={selectedLinkLoading} error={selectedLinkError} />
       )}
 
-      {selectedFolder?.length === 0 && (
+      {!selectedLinkLoading && selectedFolder?.length === 0 && (
         <div className="nothing-data">
           <span>저장된 링크가 없습니다</span>
         </div>

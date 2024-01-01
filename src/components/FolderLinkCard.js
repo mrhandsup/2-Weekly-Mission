@@ -1,6 +1,7 @@
 import { getTimeAgo } from '../getTimeAgo';
 import formatDate from '../utills/formatDate';
 import FloatingAddBtn from './FloatingAddBtn';
+import './FolderLinkCard.css';
 
 function FolderLinkCard({ links, loading, error }) {
   return (
@@ -21,23 +22,30 @@ function FolderLinkCard({ links, loading, error }) {
                   <div className="info-area">
                     <div className="time-ago-area">
                       <span className="time-ago">{getTimeAgo(link.created_at)}</span>
-                      <button
-                        onClick={e => {
-                          e.preventDefault();
-                        }}>
-                        <img
+                      <div className="kebab-menu">
+                        <button
                           className="kebab-btn"
-                          src={process.env.PUBLIC_URL + '/images/kebab.png'}
-                          alt="추가메뉴 버튼"
-                        />
-                      </button>
+                          onClick={e => {
+                            e.preventDefault();
+                          }}>
+                          <img src={process.env.PUBLIC_URL + '/images/kebab.png'} alt="추가메뉴 버튼" />
+                        </button>
+                        <div className="kebab-menu-list">
+                          <button className="btn">
+                            <span>삭제하기</span>
+                          </button>
+                          <button className="btn">
+                            <span>폴더에 추가</span>
+                          </button>
+                        </div>
+                      </div>
                     </div>
                     <p className="title">{link.title}</p>
                     <span className="date">{formatDate(link.created_at)}</span>
                   </div>
                 </a>
-                <button>
-                  <img className="star-btn" src={process.env.PUBLIC_URL + '/images/star.png'} alt="즐겨 찾기" />
+                <button className="star-btn">
+                  <img src={process.env.PUBLIC_URL + '/images/star.png'} alt="즐겨 찾기" />
                 </button>
               </li>
             ))}
@@ -48,6 +56,14 @@ function FolderLinkCard({ links, loading, error }) {
       )}
     </>
   );
+}
+
+function kebabMenu() {
+  return;
+  <div className="kebab-menu">
+    <button className="btn">삭제하기</button>
+    <button className="btn">폴더에 추가</button>
+  </div>;
 }
 
 export default FolderLinkCard;
