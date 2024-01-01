@@ -11,22 +11,40 @@ function FolderHeaderUtils({ folderName }) {
     setOpenModal(true);
   };
 
-  const handleRenameClick = () => {
+  const handleShareClick = () => {
     const content = {
-      title: '폴더 이름 변경',
-      hasInput: true,
-      buttonRole: '변경하기',
+      title: '폴더 공유',
+      hasInput: false,
+      folderName,
+      hasSns: true,
+      hasBtn: false,
     };
 
     handleOpenModal(content);
   };
+
+  const handleRenameClick = () => {
+    const content = {
+      title: '폴더 이름 변경',
+      hasInput: true,
+      placeHolder: '유용한 팁',
+      hasSns: false,
+      hasBtn: true,
+      buttonName: '변경하기',
+    };
+
+    handleOpenModal(content);
+  };
+
   const handleRemoveClick = () => {
     const content = {
       title: '폴더 삭제',
       hasInput: false,
       folderName,
-      backgroundColor: '#FF5B56',
-      buttonRole: '삭제하기',
+      hasSns: false,
+      hasBtn: true,
+      buttonColor: '#FF5B56',
+      buttonName: '삭제하기',
     };
 
     handleOpenModal(content);
@@ -36,7 +54,7 @@ function FolderHeaderUtils({ folderName }) {
     <>
       <div className="utils">
         <div className="share">
-          <button>
+          <button onClick={handleShareClick}>
             <img src={process.env.PUBLIC_URL + '/images/share.png'} alt="공유" />
             <span className="text">공유</span>
           </button>
