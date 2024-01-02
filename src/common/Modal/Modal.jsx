@@ -4,7 +4,7 @@ import styles from './Modal.module.css';
 
 function Modal({ modalContent, closeModal }) {
   const [selectedTabs, setSelectedTabs] = useState([]);
-
+  console.log(modalContent.linkUrl);
   const handleTabClick = index => {
     setSelectedTabs(prevSelectedTabs => {
       if (prevSelectedTabs.includes(index)) {
