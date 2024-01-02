@@ -47,17 +47,17 @@ function Modal({ modalContent, closeModal }) {
         </div>
 
         <div className={styles['modal-footer']}>
-          {modalContent.hasBtn && (
-            <div className={styles['action-btn']}>
-              {modalContent.linkRemoveBtn ? (
-                <button className={styles['remove-btn']} show>
-                  {modalContent.buttonName}
-                </button>
-              ) : (
-                <button className={styles['add-btn']}>{modalContent.buttonName}</button>
-              )}
-            </div>
-          )}
+          <div className={styles['action-btn']}>
+            {modalContent.folderAddBtn && <button className={styles['add-btn']}>{modalContent.buttonName}</button>}
+            {modalContent.folderNameChageBtn && (
+              <button className={styles['add-btn']}>{modalContent.buttonName}</button>
+            )}
+            {modalContent.folderRemoveBtn && (
+              <button className={styles['remove-btn']}>{modalContent.buttonName}</button>
+            )}
+            {modalContent.linkRemoveBtn && <button className={styles['remove-btn']}>{modalContent.buttonName}</button>}
+            {modalContent.addToFolderBtn && <button className={styles['add-btn']}>{modalContent.buttonName}</button>}
+          </div>
         </div>
 
         <button className={styles.close} onClick={closeModal}>

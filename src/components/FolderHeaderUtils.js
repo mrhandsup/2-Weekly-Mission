@@ -17,7 +17,6 @@ function FolderHeaderUtils({ folderName }) {
       hasInput: false,
       folderName,
       hasSns: true,
-      hasBtn: false,
     };
 
     handleOpenModal(content);
@@ -29,8 +28,7 @@ function FolderHeaderUtils({ folderName }) {
       hasInput: true,
       placeHolder: '유용한 팁',
       hasSns: false,
-      hasBtn: true,
-      linkRemoveBtn: false,
+      folderNameChageBtn: true,
       buttonName: '변경하기',
     };
 
@@ -44,7 +42,7 @@ function FolderHeaderUtils({ folderName }) {
       folderName,
       hasSns: false,
       hasBtn: true,
-      linkRemoveBtn: true,
+      folderRemoveBtn: true,
       buttonName: '삭제하기',
     };
 

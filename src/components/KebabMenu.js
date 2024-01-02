@@ -15,7 +15,6 @@ function KebabMenu({ linkUrl, tabs }) {
       title: '링크 삭제',
       hasInput: false,
       hasSns: false,
-      hasBtn: true,
       linkRemoveBtn: true,
       buttonName: '삭제하기',
       linkUrl,
@@ -32,8 +31,7 @@ function KebabMenu({ linkUrl, tabs }) {
       hasTabList: true,
       linkUrl,
       tabs,
-      hasBtn: true,
-      linkRemoveBtn: false,
+      addToFolderBtn: true,
       buttonName: '추가하기',
     };
 

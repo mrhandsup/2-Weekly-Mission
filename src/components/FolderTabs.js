@@ -1,6 +1,29 @@
+import { useState } from 'react';
 import './FolderTabs.css';
+import Modal from '../common/Modal/Modal';
 
 function FolderTabs({ tabs, selectedTab, setSelectedTab, isLoading, isError }) {
+  const [openModal, setOpenModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+
+  const handleOpenModal = content => {
+    setOpenModal(true);
+    setModalContent(content);
+  };
+
+  const handleaddClick = () => {
+    const content = {
+      title: '폴더 추가 ',
+      hasInput: true,
+      placeHolder: '내용 입력',
+      hasSns: false,
+      folderAddBtn: true,
+      buttonName: '추가하기',
+    };
+
+    handleOpenModal(content);
+  };
+
   const handleTabClick = id => {
     setSelectedTab(id);
   };
@@ -29,11 +52,12 @@ function FolderTabs({ tabs, selectedTab, setSelectedTab, isLoading, isError }) {
             })}
             {isError?.message && <span className="error">{isError.message}</span>}
           </ul>
-          <button>
+          <button onClick={handleaddClick}>
             <img className="more-btn" src={process.env.PUBLIC_URL + '/images/add.png'} alt="더보기" />
           </button>
         </div>
       )}
+      {openModal && <Modal modalContent={modalContent} closeModal={() => setOpenModal(false)} />}
     </>
   );
 }
