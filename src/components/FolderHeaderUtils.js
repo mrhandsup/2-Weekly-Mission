@@ -30,6 +30,7 @@ function FolderHeaderUtils({ folderName }) {
       placeHolder: '유용한 팁',
       hasSns: false,
       hasBtn: true,
+      linkRemoveBtn: false,
       buttonName: '변경하기',
     };
 
@@ -43,7 +44,7 @@ function FolderHeaderUtils({ folderName }) {
       folderName,
       hasSns: false,
       hasBtn: true,
-      buttonColor: '#FF5B56',
+      linkRemoveBtn: true,
       buttonName: '삭제하기',
     };
 

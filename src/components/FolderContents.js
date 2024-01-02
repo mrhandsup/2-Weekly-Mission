@@ -3,7 +3,7 @@ import FolderLinkCard from './FolderLinkCard';
 import useAsync from './hooks/useAsync';
 import { getSearchedFolders, getUserLinks } from '../api';
 
-function FolderContents({ selectedTab }) {
+function FolderContents({ tabs, selectedTab }) {
   const [selectedFolder, setSelectedFolder] = useState();
   const [allLinks, setAllLinks] = useState([]);
   const [allLinkLoading, allLinkError, getUserLinksAsync] = useAsync(getUserLinks);
@@ -29,9 +29,11 @@ function FolderContents({ selectedTab }) {
 
   return (
     <>
-      {selectedTab === null && <FolderLinkCard links={allLinks} loading={allLinkLoading} error={allLinkError} />}
+      {selectedTab === null && (
+        <FolderLinkCard links={allLinks} tabs={tabs} loading={allLinkLoading} error={allLinkError} />
+      )}
       {selectedTab !== null && (
-        <FolderLinkCard links={selectedFolder} loading={selectedLinkLoading} error={selectedLinkError} />
+        <FolderLinkCard links={selectedFolder} tabs={tabs} loading={selectedLinkLoading} error={selectedLinkError} />
       )}
 
       {!selectedLinkLoading && selectedFolder?.length === 0 && (

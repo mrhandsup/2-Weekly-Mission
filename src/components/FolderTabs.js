@@ -1,6 +1,6 @@
 import './FolderTabs.css';
 
-function FolderTabs({ tab, selectedTab, setSelectedTab, isLoading, isError }) {
+function FolderTabs({ tabs, selectedTab, setSelectedTab, isLoading, isError }) {
   const handleTabClick = id => {
     setSelectedTab(id);
   };
@@ -18,11 +18,11 @@ function FolderTabs({ tab, selectedTab, setSelectedTab, isLoading, isError }) {
               </button>
             </li>
 
-            {tab?.map(list => {
+            {tabs?.map(tab => {
               return (
-                <li key={list.id} className="list">
-                  <button className={selectedTab === list.id ? 'clicked' : ''} onClick={() => handleTabClick(list.id)}>
-                    {list.name}
+                <li key={tab.id} className="list">
+                  <button className={selectedTab === tab.id ? 'clicked' : ''} onClick={() => handleTabClick(tab.id)}>
+                    {tab.name}
                   </button>
                 </li>
               );

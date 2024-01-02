@@ -39,7 +39,6 @@
   border-radius: 0px 0px 15px 15px;
   background-color: #fff;
   position: relative;
-  z-index: 1;
 }
 
 .folder-card .link-card .info-area .time-ago-area {

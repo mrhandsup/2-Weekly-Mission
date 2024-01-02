@@ -22,19 +22,20 @@
   align-items: center;
   gap: 8px;
 }
-.modal-container .title {
+.modal-container .modal-header .title {
   color: #373740;
   font-size: 20px;
   font-weight: 700;
   line-height: normal;
 }
 
-.modal-container .folder-name {
+.modal-container .modal-header .folder-name,
+.modal-container .modal-header .link-url {
   color: #9fa6b2;
   font-size: 14px;
   line-height: 22px;
 }
-.modal-container .modal-input {
+.modal-container .modal-body .modal-input {
   display: flex;
   width: 280px;
   padding: 18px 15px;
@@ -45,13 +46,40 @@
   background: #fff;
 }
 
-.modal-container .sns-area {
+.modal-container .modal-body .tabList {
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+  width: 264px;
+  align-items: center;
+}
+.modal-container .modal-body .tabList.show {
+  border-radius: 8px;
+  background-image: url('/public/images/check.png');
+  background-repeat: no-repeat;
+  background-position: center right 10px;
+  background-color: #f0f6ff;
+}
+
+.modal-container .modal-body .tabList .tabName {
+  color: #373740;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.modal-container .modal-body .tabList .tabCount {
+  color: #9fa6b2;
+  font-size: 14px;
+  line-height: normal;
+}
+
+.modal-container .modal-body .sns-area {
   display: flex;
   gap: 32px;
 }
-.modal-container .sns-area .kakao,
-.modal-container .sns-area .facebook,
-.modal-container .sns-area .link {
+.modal-container .modal-body .sns-area .kakao,
+.modal-container .modal-body .sns-area .facebook,
+.modal-container .modal-body .sns-area .link {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -59,7 +87,7 @@
   gap: 10px;
 }
 
-.modal-container .sns-area .kakao .share-btn {
+.modal-container .modal-body .sns-area .kakao .share-btn {
   display: flex;
   padding: 12px;
   justify-content: center;
@@ -69,7 +97,7 @@
   background: #fee500;
 }
 
-.modal-container .sns-area .facebook .share-btn {
+.modal-container .modal-body .sns-area .facebook .share-btn {
   display: flex;
   padding: 12px;
   justify-content: center;
@@ -79,7 +107,7 @@
   background: #1877f2;
 }
 
-.modal-container .sns-area .link .share-btn {
+.modal-container .modal-body .sns-area .link .share-btn {
   display: flex;
   padding: 12px;
   justify-content: center;
@@ -89,14 +117,27 @@
   background: rgba(157, 157, 157, 0.04);
 }
 
-.modal-container .sns-area .text {
+.modal-container .modal-body .sns-area .text {
   color: #373740;
   text-align: center;
   font-family: Inter;
   font-size: 13px;
 }
 
-.modal-container .btn {
+.modal-container .modal-footer .action-btn .remove-btn {
+  display: flex;
+  width: 280px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  color: #f5f5f5;
+  font-size: 16px;
+  background-color: #ff5b56;
+}
+
+.modal-container .modal-footer .action-btn .add-btn {
   display: flex;
   width: 280px;
   padding: 16px 20px;

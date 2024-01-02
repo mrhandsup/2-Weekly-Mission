@@ -3,8 +3,9 @@ import { getTimeAgo } from '../getTimeAgo';
 import formatDate from '../utills/formatDate';
 import FloatingAddBtn from './FloatingAddBtn';
 import './FolderLinkCard.css';
+import KebabMenu from './KebabMenu';
 
-function FolderLinkCard({ links, loading, error }) {
+function FolderLinkCard({ links, tabs, loading, error }) {
   const [showKebabMenu, setShowKebabMenu] = useState([]);
 
   useEffect(() => {
@@ -13,13 +14,10 @@ function FolderLinkCard({ links, loading, error }) {
     }
   }, [links]);
 
-  const toggleKebabMenu = (e, index) => {
-    e.preventDefault();
-
+  const toggleKebabMenu = index => {
     setShowKebabMenu(prevStates => {
       const newStates = [...prevStates];
       newStates[index] = !newStates[index];
-
       return newStates;
     });
   };
@@ -42,15 +40,15 @@ function FolderLinkCard({ links, loading, error }) {
                   <div className="info-area">
                     <div className="time-ago-area">
                       <span className="time-ago">{getTimeAgo(link.created_at)}</span>
-                      <div className="kebab-menu">
+                      <div className="kebab-menu" onClick={e => e.preventDefault()}>
                         <button
                           className="kebab-btn"
-                          onClick={e => {
-                            toggleKebabMenu(e, index);
+                          onClick={() => {
+                            toggleKebabMenu(index);
                           }}>
                           <img src={process.env.PUBLIC_URL + '/images/kebab.png'} alt="추가메뉴 버튼" />
                         </button>
-                        {showKebabMenu[index] && <KebabMenu />}
+                        {showKebabMenu[index] && <KebabMenu linkUrl={link.url} tabs={tabs} />}
                       </div>
                     </div>
                     <p className="title">{link.title}</p>
@@ -68,19 +66,6 @@ function FolderLinkCard({ links, loading, error }) {
         </>
       )}
     </>
-  );
-}
-
-function KebabMenu() {
-  return (
-    <div className="kebab-menu-list">
-      <button className="btn">
-        <span>삭제하기</span>
-      </button>
-      <button className="btn">
-        <span>폴더에 추가</span>
-      </button>
-    </div>
   );
 }
 

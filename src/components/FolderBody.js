@@ -7,13 +7,13 @@ import FolderContents from './FolderContents';
 import useAsync from './hooks/useAsync';
 
 function FolderBody() {
-  const [tab, setTab] = useState();
+  const [tabs, setTabs] = useState();
   const [selectedTab, setSelectedTab] = useState(null);
   const [isLoading, isError, getFolderTabsAsync] = useAsync(getFolderTabs);
 
   const fetchData = async () => {
     const data = await getFolderTabsAsync();
-    setTab(data);
+    setTabs(data);
   };
 
   useEffect(() => {
@@ -25,14 +25,14 @@ function FolderBody() {
       <div className="folder-body">
         <LinkSearchInput />
         <FolderTabs
-          tab={tab}
+          tabs={tabs}
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
           isLoading={isLoading}
           isError={isError}
         />
-        <FolderHeader tabs={tab} selectedTab={selectedTab} />
-        <FolderContents selectedTab={selectedTab} />
+        <FolderHeader tabs={tabs} selectedTab={selectedTab} />
+        <FolderContents tabs={tabs} selectedTab={selectedTab} />
       </div>
     </>
   );
